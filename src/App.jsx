@@ -65,7 +65,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>My Hacker Stories</h1>
+      <h1>Adam Aslan Workin 6-22</h1>
 
       <InputWithLabel
         id="search"
