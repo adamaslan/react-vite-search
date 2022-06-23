@@ -1,5 +1,5 @@
 import * as React from "react";
-
+//data
 const initialStories = [
   {
     title: "React",
@@ -18,12 +18,13 @@ const initialStories = [
     objectID: 1,
   },
 ];
-
+//promise resolves data able to be passed as props
 const getAsyncStories = () =>
   new Promise((resolve) =>
     setTimeout(() => resolve({ data: { stories: initialStories } }), 2000)
   );
 
+//state to aid search
 const useSemiPersistentState = (key, initialState) => {
   const [value, setValue] = React.useState(
     localStorage.getItem(key) || initialState
