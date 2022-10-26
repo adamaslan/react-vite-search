@@ -136,7 +136,7 @@ const App = () => {
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     setUrl(`${API_ENDPOINT}${searchTerm}`);
 
-    event.preventDefault();
+    event. ();
   };
 
   return (
@@ -206,6 +206,7 @@ const InputWithLabel = ({
   isFocused,
   children,
 }: InputWithLabelProps) => {
+  //@ts-ignore
   const inputRef = React.useRef<HTMLInputElement>(null!);
 
   React.useEffect(() => {
