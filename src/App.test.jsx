@@ -30,33 +30,101 @@ const storyTwo = {
 
 const stories = [storyOne, storyTwo];
 
-// describe("storiesReducer", () => {
-//   test("removes a story from all stories", () => {
-//     const action = { type: "REMOVE_STORY", payload: storyOne };
-//     const state = { data: stories, isLoading: false, isError: false };
-
-//     const newState = storiesReducer(state, action);
-
-//     const expectedState = {
-//       data: [storyTwo],
-//       isLoading: false,
-//       isError: false,
-//     };
-
-//     expect(newState).toStrictEqual(expectedState);
-//   });
-
 describe("storiesReducer", () => {
-  test("Story fetch failure", () => {
-    const action = { type: "STORIES_FETCH_FAILURE", payload: storyOne };
-    const state = { data: [storyOne], isLoading: false, isError: true };
+  test("removes a story from all stories", () => {
+    const action = { type: "REMOVE_STORY", payload: storyOne };
+    const state = { data: stories, isLoading: false, isError: false };
 
     const newState = storiesReducer(state, action);
 
     const expectedState = {
-      data: [storyOne],
+      data: [storyTwo],
+      isLoading: false,
+      isError: false,
+    };
+
+    expect(newState).toStrictEqual(expectedState);
+  });
+});
+describe("storiesReducer", () => {
+  test("Story fetch failure", () => {
+    const action = { type: "STORIES_FETCH_FAILURE", payload: storyOne };
+    const state = { storyOne, isLoading: false, isError: true };
+
+    const newState = storiesReducer(state, action);
+
+    const expectedState = {
+      storyOne,
       isLoading: false,
       isError: true,
+    };
+
+    expect(newState).toStrictEqual(expectedState);
+  });
+});
+
+describe("storiesReducer", () => {
+  test("removes a story from all stories", () => {
+    const action = { type: "REMOVE_STORY", payload: storyOne };
+    const state = { data: stories, isLoading: false, isError: false };
+
+    const newState = storiesReducer(state, action);
+
+    const expectedState = {
+      data: [storyTwo],
+      isLoading: false,
+      isError: false,
+    };
+
+    expect(newState).toStrictEqual(expectedState);
+  });
+});
+describe("storiesReducer", () => {
+  test("Story fetch failure", () => {
+    const action = { type: "STORIES_FETCH_FAILURE", payload: storyOne };
+    const state = { storyOne, isLoading: false, isError: true };
+
+    const newState = storiesReducer(state, action);
+
+    const expectedState = {
+      storyOne,
+      isLoading: false,
+      isError: true,
+    };
+
+    expect(newState).toStrictEqual(expectedState);
+  });
+});
+
+//
+describe("storiesReducer", () => {
+  test("Story fetch Init", () => {
+    const action = { type: "STORIES_FETCH_INIT", payload: storyOne };
+    const state = { storyOne, isLoading: true, isError: false };
+
+    const newState = storiesReducer(state, action);
+
+    const expectedState = {
+      storyOne,
+      isLoading: true,
+      isError: false,
+    };
+
+    expect(newState).toStrictEqual(expectedState);
+  });
+});
+
+describe("storiesReducer", () => {
+  test("Story fetch Success", () => {
+    const action = { type: "STORIES_FETCH_SUCCESS", payload: storyOne };
+    const state = { data: action.payload, isLoading: false, isError: false };
+
+    const newState = storiesReducer(state, action);
+
+    const expectedState = {
+      data: storyOne,
+      isLoading: false,
+      isError: false,
     };
 
     expect(newState).toStrictEqual(expectedState);
